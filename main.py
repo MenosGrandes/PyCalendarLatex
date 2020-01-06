@@ -1,5 +1,8 @@
 
 from pylatex import Document, Section, Subsection, Tabular, MultiColumn, MultiRow
+class Week:
+    def __init__(self):
+        pass
 
 doc = Document("multirow")
 section = Section('Multirow Test')
@@ -11,20 +14,22 @@ test4 = Subsection('Vext01')
 DAYS =['TUE','WED', 'THU', 'FRI', 'SAT','SUN']
 tabular = '|'
 tabular = tabular + '|'.join([''.join('c') for x in range(len(DAYS)+1)])+ '|'
-print(tabular)
-#week1
-table2= Tabular(tabular)
-table2.add_hline()
 
-table2.add_row((MultiColumn(1,data='    '), *DAYS))
-table2.add_hline()
-table2.add_row( ('WEEK1','W','S','C','P','S','N'))
+table4 = Tabular(tabular)
+table4.add_hline()
+table4.add_row((MultiColumn(1,align = '|c|', data=''), *DAYS))
+table4.add_hline()
+col1_cell = MultiRow(2, data='WEEK 1')
+table4.add_row((col1_cell,*DAYS))
+table4.add_hline(start=2)
+table4.add_row("1","2","3","4","5","6","7")
+table4.add_hline()
 #for x in DAYS:
 #    table2.add_empty_row()
 #    table2.add_hline()
 
-test2.append(table2)
-section.append(test2)
+test2.append(table4)
+section.append(table4)
 
 
 
